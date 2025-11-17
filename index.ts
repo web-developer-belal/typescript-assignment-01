@@ -136,3 +136,37 @@ const getUniqueValues = (
 // const array2 = [3, 4, 5, 6, 7];
 
 // console.log(getUniqueValues(array1, array2));
+
+// Problem 08
+
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+const calculateTotalPrice = (value: Product[]) => {
+  let total = 0;
+
+  value.forEach((item) => {
+    let itemTotal = item.price * item.quantity;
+
+    if (item.discount) {
+      itemTotal -= (itemTotal * item.discount) / 100;
+    }
+
+    total += itemTotal;
+  });
+
+  return total;
+};
+
+
+// const products = [
+//   { name: 'Pen', price: 10, quantity: 2 },
+//   { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+//   { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+// ];
+
+// console.log(calculateTotalPrice(products));
