@@ -94,15 +94,45 @@ interface Book {
   isAvailable: boolean;
 }
 
-const printBookDetails =(value: Book) =>{
-    console.log(`Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${value.isAvailable?'Yes':'No'}`)
-}
-
-const myBook: Book = {
-  title: 'The Great Gatsby',
-  author: 'F. Scott Fitzgerald',
-  publishedYear: 1925,
-  isAvailable: true,
+const printBookDetails = (value: Book) => {
+  console.log(
+    `Title: ${value.title}, Author: ${value.author}, Published: ${
+      value.publishedYear
+    }, Available: ${value.isAvailable ? "Yes" : "No"}`
+  );
 };
 
-printBookDetails(myBook);
+// const myBook: Book = {
+//   title: 'The Great Gatsby',
+//   author: 'F. Scott Fitzgerald',
+//   publishedYear: 1925,
+//   isAvailable: true,
+// };
+
+// printBookDetails(myBook);
+
+// problem 07
+
+const getUniqueValues = (
+  array1: (string | number)[],
+  array2: (string | number)[]
+) => {
+  let uniqueArray: (string | number)[] = [];
+
+  for (let i = 0; i < array1.length; i++) {
+    const element = array1[i];
+    if (!uniqueArray.includes(element)) uniqueArray.push(element);
+  }
+
+  for (let i = 0; i < array2.length; i++) {
+    const element = array2[i];
+    if (!uniqueArray.includes(element)) uniqueArray.push(element);
+  }
+
+  return uniqueArray;
+};
+
+// const array1 = [1, 2, 3, 4, 5];
+// const array2 = [3, 4, 5, 6, 7];
+
+// console.log(getUniqueValues(array1, array2));
