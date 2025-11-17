@@ -1,7 +1,6 @@
-//problem 01
-const formatValue = (value: string | number | boolean) => {
+const formatValue = (value: string | number | boolean): string | number | boolean => {
   if (typeof value === "string") {
-    return value.toLocaleUpperCase();
+    return value.toUpperCase();
   } else if (typeof value === "number") {
     return value * 10;
   } else {
@@ -9,23 +8,13 @@ const formatValue = (value: string | number | boolean) => {
   }
 };
 
-// console.log(formatValue('hello'));
-// console.log(formatValue(5));
-// console.log(formatValue(true));
-
-//Problem 02
-const getLength = (value: string | Array<any>) => {
+const getLength = (value: string | any[]): number => {
   if (typeof value === "string") {
     return value.length;
   } else {
     return value.length;
   }
 };
-
-// console.log(getLength('typescript'));
-// console.log(getLength([10, 20, 30, 40]));
-
-// Problem 03
 
 class Person {
   name: string;
@@ -36,36 +25,19 @@ class Person {
     this.age = age;
   }
 
-  getDetails() {
-    return `Name: [${this.name}], Age: [${this.age}]`;
+  getDetails(): string {
+    return `Name: ${this.name}, Age: ${this.age}`;
   }
 }
-
-// const person1 = new Person('John Doe', 30);
-// console.log(person1.getDetails());
-
-// const person2 = new Person('Alice', 25);
-// console.log(person2.getDetails());
-
-// Problem 04
 
 type filterItemType = {
   title: string;
   rating: number;
 };
-const filterByRating = (value: filterItemType[]) => {
+
+const filterByRating = (value: filterItemType[]): filterItemType[] => {
   return value.filter((item) => item.rating >= 4);
 };
-
-// const books = [
-//   { title: 'Book A', rating: 4.5 },
-//   { title: 'Book B', rating: 3.2 },
-//   { title: 'Book C', rating: 5.0 },
-// ];
-
-// console.log(filterByRating(books));
-
-//Problem 05
 
 type activeUserType = {
   id: number;
@@ -73,19 +45,10 @@ type activeUserType = {
   email: string;
   isActive: boolean;
 };
-const filterActiveUsers = (value: activeUserType[]) => {
+
+const filterActiveUsers = (value: activeUserType[]): activeUserType[] => {
   return value.filter((item) => item.isActive);
 };
-
-// const users = [
-//   { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
-//   { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
-//   { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
-// ];
-
-// console.log(filterActiveUsers(users));
-
-// Problem 06
 
 interface Book {
   title: string;
@@ -94,29 +57,16 @@ interface Book {
   isAvailable: boolean;
 }
 
-const printBookDetails = (value: Book) => {
-  console.log(
-    `Title: ${value.title}, Author: ${value.author}, Published: ${
-      value.publishedYear
-    }, Available: ${value.isAvailable ? "Yes" : "No"}`
-  );
+const printBookDetails = (value: Book): string => {
+  return `Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${
+    value.isAvailable ? "Yes" : "No"
+  }`;
 };
-
-// const myBook: Book = {
-//   title: 'The Great Gatsby',
-//   author: 'F. Scott Fitzgerald',
-//   publishedYear: 1925,
-//   isAvailable: true,
-// };
-
-// printBookDetails(myBook);
-
-// problem 07
 
 const getUniqueValues = (
   array1: (string | number)[],
   array2: (string | number)[]
-) => {
+): (string | number)[] => {
   let uniqueArray: (string | number)[] = [];
 
   for (let i = 0; i < array1.length; i++) {
@@ -132,13 +82,6 @@ const getUniqueValues = (
   return uniqueArray;
 };
 
-// const array1 = [1, 2, 3, 4, 5];
-// const array2 = [3, 4, 5, 6, 7];
-
-// console.log(getUniqueValues(array1, array2));
-
-// Problem 08
-
 interface Product {
   name: string;
   price: number;
@@ -146,27 +89,14 @@ interface Product {
   discount?: number;
 }
 
-const calculateTotalPrice = (value: Product[]) => {
-  let total = 0;
-
-  value.forEach((item) => {
+const calculateTotalPrice = (value: Product[]): number => {
+  return value.reduce((total, item) => {
     let itemTotal = item.price * item.quantity;
 
     if (item.discount) {
       itemTotal -= (itemTotal * item.discount) / 100;
     }
 
-    total += itemTotal;
-  });
-
-  return total;
+    return total + itemTotal;
+  }, 0);
 };
-
-
-// const products = [
-//   { name: 'Pen', price: 10, quantity: 2 },
-//   { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
-//   { name: 'Bag', price: 50, quantity: 1, discount: 20 },
-// ];
-
-// console.log(calculateTotalPrice(products));
