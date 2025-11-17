@@ -36,11 +36,10 @@ class Person {
     this.age = age;
   }
 
-  getDetails(){
-    return `Name: [${this.name}], Age: [${this.age}]`
+  getDetails() {
+    return `Name: [${this.name}], Age: [${this.age}]`;
   }
 }
-
 
 // const person1 = new Person('John Doe', 30);
 // console.log(person1.getDetails());
@@ -50,13 +49,13 @@ class Person {
 
 // Problem 04
 
-type filterItemType ={
-    title:string
-    rating:number
-}
-const filterByRating =(value: filterItemType[]) =>{
-  return value.filter(item=>item.rating>=4)
-}
+type filterItemType = {
+  title: string;
+  rating: number;
+};
+const filterByRating = (value: filterItemType[]) => {
+  return value.filter((item) => item.rating >= 4);
+};
 
 // const books = [
 //   { title: 'Book A', rating: 4.5 },
@@ -65,3 +64,24 @@ const filterByRating =(value: filterItemType[]) =>{
 // ];
 
 // console.log(filterByRating(books));
+
+//Problem 05
+
+type activeUserType = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+const filterActiveUsers = (value: activeUserType[]) => {
+  return value.filter((item) => item.isActive);
+};
+
+// const users = [
+//   { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
+//   { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
+//   { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
+// ];
+
+// console.log(filterActiveUsers(users));
+
