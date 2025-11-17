@@ -36,7 +36,7 @@ type filterItemType = {
 };
 
 const filterByRating = (value: filterItemType[]): filterItemType[] => {
-  return value.filter((item) => item.rating >= 4);
+  return value.filter((item) => item.rating >= 4 && item.rating <= 5);
 };
 
 type activeUserType = {
@@ -93,7 +93,7 @@ const calculateTotalPrice = (value: Product[]): number => {
   return value.reduce((total, item) => {
     let itemTotal = item.price * item.quantity;
 
-    if (item.discount) {
+    if(item.discount !== undefined && item.discount >= 0 && item.discount <= 100) {
       itemTotal -= (itemTotal * item.discount) / 100;
     }
 
